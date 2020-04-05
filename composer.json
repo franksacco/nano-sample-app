@@ -1,0 +1,26 @@
+{
+    "name": "franksacco/nano-sample-app",
+    "description": "Sample app created with create-react-app and Nano Framework",
+    "homepage": "https://github.com/franksacco/nano-sample-app",
+    "type": "library",
+    "require": {
+        "franksacco/nano-framework": "dev-master",
+        "codeinc/assets-middleware": "^2.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Francesco Saccani",
+            "email": "saccani.francesco@gmail.com",
+            "homepage": "https://github.com/franksacco",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/App/"
+        }
+    }
+}

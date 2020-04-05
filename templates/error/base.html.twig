@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.5">
+    <title>{% block title %}Nano Sample App{% endblock %}</title>
+    {% block stylesheets %}
+        <style>
+            body {
+                background-color: rgba(0, 0, 0, .02);
+                margin:0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+                    "Droid Sans", "Helvetica Neue", sans-serif;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing:grayscale;
+                font-size: 14px;
+                color: rgba(0, 0, 0, .87);
+            }
+            main {padding: 5vh 16vw 10vh 16vw;}
+            @media screen and (max-width: 450px) {
+                header {padding: 48px 32px 32px 32px; font-size: 36px;}
+                main {padding: 32px;}
+            }
+        </style>
+    {% endblock %}
+</head>
+<body>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
