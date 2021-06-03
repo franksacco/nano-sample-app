@@ -15,7 +15,8 @@ use Nano\Auth\BasicGuard;
  */
 return [
     /*
-     * The guard class that implements Guard interface.
+     * The class that defines rules for user authentication implementing
+     * `Nano\Auth\GuardInterface`.
      * Default: 'Nano\Auth\BasicGuard'.
      */
     'guard' => BasicGuard::class,
@@ -26,65 +27,59 @@ return [
     //'provider' => UserProvider::class,
 
     /*
-     * Configuration for Auth middlewares.
+     * Configuration for Basic HTTP Authentication middleware.
      */
-    'middlewares' => [
+    'http_basic' => [
+        /*
+         * Set the string assigned by the server to identify the protection space.
+         * Default: 'Restricted'.
+         */
+        'realm' => 'Restricted',
 
         /*
-         * Configuration for Basic HTTP Authentication middleware.
+         * Perform HTTP basic authentication only through a secure connection (HTTPS).
+         * Default: true.
          */
-        'http_basic' => [
-            /*
-             * Set the string assigned by the server to identify the protection space.
-             * Default: 'Restricted'.
-             */
-            'realm' => 'Restricted',
-
-            /*
-             * Perform HTTP basic authentication only through a secure connection (HTTPS).
-             * Default: true.
-             */
-            'secure' => true,
-
-            /*
-             * Set the list of host that can be authenticated through an insecure channel.
-             * Default: ['localhost', '127.0.0.1'].
-             */
-            'whitelist' => ['localhost']
-        ],
+        'secure' => true,
 
         /*
-         * Configuration for Digest HTTP Authentication middleware.
+         * Set the list of host that can be authenticated through an insecure channel.
+         * Default: ['localhost', '127.0.0.1'].
          */
-        'http_digest' => [
-            /*
-             * Set the string assigned by the server to identify the protection space.
-             * Default: 'Restricted'.
-             */
-            'realm' => 'Restricted'
-        ],
+        'allowlist' => ['localhost']
+    ],
+
+    /*
+     * Configuration for Digest HTTP Authentication middleware.
+     */
+    'http_digest' => [
+        /*
+         * Set the string assigned by the server to identify the protection space.
+         * Default: 'Restricted'.
+         */
+        'realm' => 'Restricted'
+    ],
+
+    /*
+     * Configuration for Session Authentication middleware.
+     */
+    'session' => [
+        /*
+         * Whether to enable redirection when authentication fails.
+         * Default: true.
+         */
+        'redirect' => true,
 
         /*
-         * Configuration for session authentication middleware.
+         * The path of the redirection on authentication failure.
+         * Default: '/login'.
          */
-        'session' => [
-            /*
-             * Whether to enable redirection when authentication fails.
-             * Default: true.
-             */
-            'redirect' => true,
+        'redirect_path' => '/login',
 
-            /*
-             * The path of the redirection on authentication failure.
-             * Default: '/login'.
-             */
-            'redirect_path' => '/login',
-
-            /*
-             * The time-to-live of session's validity in seconds.
-             * Default: 1200.
-             */
-            'expiration' => 1200
-        ]
+        /*
+         * The time-to-live of session's validity in seconds.
+         * Default: 1200.
+         */
+        'expiration' => 1200
     ]
 ];
